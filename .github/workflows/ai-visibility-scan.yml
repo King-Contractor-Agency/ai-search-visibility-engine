@@ -82,7 +82,7 @@ jobs:
             cmd+=(--no-publish)
           fi
           if [[ "${INPUT_DRY_RUN:-false}" == "true" ]]; then
-            cmd+=(--dry-run --no-briefs --no-publish)
+                 cmd+=(--dry-run --no-agents --no-publish)
           fi
           "${cmd[@]}"
 
