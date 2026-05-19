@@ -1,0 +1,13 @@
+.env
+.env.local
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+output/briefs/**/*.md
+!output/briefs/.gitkeep
+data/prompt_history/*.json
+!data/prompt_history/.gitkeep
+.vscode/
+.idea/
