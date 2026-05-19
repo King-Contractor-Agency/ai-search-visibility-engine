@@ -1,82 +1,482 @@
 {
+  "all-heights-roofing-sem-best-companies-cleveland-oh": {
+    "client_slug": "all-heights-roofing",
+    "last_seen": "2026-05-19T11:19:31+00:00",
+    "tier": "Watch"
+  },
+  "all-heights-roofing-sem-best-companies-eastlake-oh": {
+    "client_slug": "all-heights-roofing",
+    "last_seen": "2026-05-19T11:19:42+00:00",
+    "tier": "Watch"
+  },
+  "all-heights-roofing-sem-best-companies-mentor-oh": {
+    "client_slug": "all-heights-roofing",
+    "last_seen": "2026-05-19T11:19:53+00:00",
+    "tier": "Watch"
+  },
+  "all-heights-roofing-sem-best-companies-painesville-oh": {
+    "client_slug": "all-heights-roofing",
+    "last_seen": "2026-05-19T11:20:04+00:00",
+    "tier": "Watch"
+  },
+  "all-heights-roofing-sem-best-companies-wickliffe-oh": {
+    "client_slug": "all-heights-roofing",
+    "last_seen": "2026-05-19T11:20:16+00:00",
+    "tier": "Watch"
+  },
   "all-heights-roofing-sem-branded-look-for-willoughby-oh": {
     "client_slug": "all-heights-roofing",
-    "last_seen": "2026-05-19T10:24:01+00:00",
+    "last_seen": "2026-05-19T11:19:19+00:00",
     "tier": "Watch"
   },
   "all-heights-roofing-sem-branded-services-willoughby-oh": {
     "client_slug": "all-heights-roofing",
-    "last_seen": "2026-05-19T10:24:07+00:00",
+    "last_seen": "2026-05-19T11:19:26+00:00",
+    "tier": "Watch"
+  },
+  "all-heights-roofing-sem-recommend-best-cleveland-oh": {
+    "client_slug": "all-heights-roofing",
+    "last_seen": "2026-05-19T11:19:37+00:00",
+    "tier": "Watch"
+  },
+  "all-heights-roofing-sem-recommend-best-eastlake-oh": {
+    "client_slug": "all-heights-roofing",
+    "last_seen": "2026-05-19T11:19:47+00:00",
+    "tier": "Watch"
+  },
+  "all-heights-roofing-sem-recommend-best-mentor-oh": {
+    "client_slug": "all-heights-roofing",
+    "last_seen": "2026-05-19T11:19:59+00:00",
+    "tier": "Watch"
+  },
+  "all-heights-roofing-sem-recommend-best-painesville-oh": {
+    "client_slug": "all-heights-roofing",
+    "last_seen": "2026-05-19T11:20:10+00:00",
+    "tier": "Watch"
+  },
+  "all-heights-roofing-sem-recommend-best-wickliffe-oh": {
+    "client_slug": "all-heights-roofing",
+    "last_seen": "2026-05-19T11:20:22+00:00",
+    "tier": "Watch"
+  },
+  "colorado-preferred-roofing-sem-best-companies-castle-rock-co": {
+    "client_slug": "colorado-preferred-roofing",
+    "last_seen": "2026-05-19T11:20:38+00:00",
+    "tier": "Watch"
+  },
+  "colorado-preferred-roofing-sem-best-companies-centennial-co": {
+    "client_slug": "colorado-preferred-roofing",
+    "last_seen": "2026-05-19T11:20:49+00:00",
+    "tier": "Watch"
+  },
+  "colorado-preferred-roofing-sem-best-companies-colorado-springs-co": {
+    "client_slug": "colorado-preferred-roofing",
+    "last_seen": "2026-05-19T11:21:01+00:00",
+    "tier": "Watch"
+  },
+  "colorado-preferred-roofing-sem-best-companies-denver-co": {
+    "client_slug": "colorado-preferred-roofing",
+    "last_seen": "2026-05-19T11:21:12+00:00",
+    "tier": "Watch"
+  },
+  "colorado-preferred-roofing-sem-best-companies-highlands-ranch-co": {
+    "client_slug": "colorado-preferred-roofing",
+    "last_seen": "2026-05-19T11:21:23+00:00",
     "tier": "Watch"
   },
   "colorado-preferred-roofing-sem-branded-look-for-littleton-co": {
     "client_slug": "colorado-preferred-roofing",
-    "last_seen": "2026-05-19T10:24:12+00:00",
+    "last_seen": "2026-05-19T11:20:28+00:00",
     "tier": "Watch"
   },
   "colorado-preferred-roofing-sem-branded-services-littleton-co": {
     "client_slug": "colorado-preferred-roofing",
-    "last_seen": "2026-05-19T10:24:13+00:00",
+    "last_seen": "2026-05-19T11:20:34+00:00",
+    "tier": "Watch"
+  },
+  "colorado-preferred-roofing-sem-recommend-best-castle-rock-co": {
+    "client_slug": "colorado-preferred-roofing",
+    "last_seen": "2026-05-19T11:20:44+00:00",
+    "tier": "Watch"
+  },
+  "colorado-preferred-roofing-sem-recommend-best-centennial-co": {
+    "client_slug": "colorado-preferred-roofing",
+    "last_seen": "2026-05-19T11:20:55+00:00",
+    "tier": "Watch"
+  },
+  "colorado-preferred-roofing-sem-recommend-best-colorado-springs-co": {
+    "client_slug": "colorado-preferred-roofing",
+    "last_seen": "2026-05-19T11:21:07+00:00",
+    "tier": "Watch"
+  },
+  "colorado-preferred-roofing-sem-recommend-best-denver-co": {
+    "client_slug": "colorado-preferred-roofing",
+    "last_seen": "2026-05-19T11:21:17+00:00",
+    "tier": "Watch"
+  },
+  "colorado-preferred-roofing-sem-recommend-best-highlands-ranch-co": {
+    "client_slug": "colorado-preferred-roofing",
+    "last_seen": "2026-05-19T11:21:30+00:00",
+    "tier": "Watch"
+  },
+  "highpoint-construction-sem-best-companies-bismarck-nd": {
+    "client_slug": "highpoint-construction",
+    "last_seen": "2026-05-19T11:21:48+00:00",
+    "tier": "Watch"
+  },
+  "highpoint-construction-sem-best-companies-dickinson-nd": {
+    "client_slug": "highpoint-construction",
+    "last_seen": "2026-05-19T11:22:00+00:00",
+    "tier": "Watch"
+  },
+  "highpoint-construction-sem-best-companies-lincoln-nd": {
+    "client_slug": "highpoint-construction",
+    "last_seen": "2026-05-19T11:22:10+00:00",
+    "tier": "Watch"
+  },
+  "highpoint-construction-sem-best-companies-mandan-nd": {
+    "client_slug": "highpoint-construction",
+    "last_seen": "2026-05-19T11:22:21+00:00",
+    "tier": "Watch"
+  },
+  "highpoint-construction-sem-best-companies-minot-nd": {
+    "client_slug": "highpoint-construction",
+    "last_seen": "2026-05-19T11:22:33+00:00",
     "tier": "Watch"
   },
   "highpoint-construction-sem-branded-look-for-bismarck-nd": {
     "client_slug": "highpoint-construction",
-    "last_seen": "2026-05-19T10:24:18+00:00",
+    "last_seen": "2026-05-19T11:21:35+00:00",
     "tier": "Watch"
   },
   "highpoint-construction-sem-branded-services-bismarck-nd": {
     "client_slug": "highpoint-construction",
-    "last_seen": "2026-05-19T10:24:24+00:00",
+    "last_seen": "2026-05-19T11:21:41+00:00",
+    "tier": "Watch"
+  },
+  "highpoint-construction-sem-recommend-best-bismarck-nd": {
+    "client_slug": "highpoint-construction",
+    "last_seen": "2026-05-19T11:21:54+00:00",
+    "tier": "Watch"
+  },
+  "highpoint-construction-sem-recommend-best-dickinson-nd": {
+    "client_slug": "highpoint-construction",
+    "last_seen": "2026-05-19T11:22:04+00:00",
+    "tier": "Watch"
+  },
+  "highpoint-construction-sem-recommend-best-lincoln-nd": {
+    "client_slug": "highpoint-construction",
+    "last_seen": "2026-05-19T11:22:16+00:00",
+    "tier": "Watch"
+  },
+  "highpoint-construction-sem-recommend-best-mandan-nd": {
+    "client_slug": "highpoint-construction",
+    "last_seen": "2026-05-19T11:22:26+00:00",
+    "tier": "Watch"
+  },
+  "highpoint-construction-sem-recommend-best-minot-nd": {
+    "client_slug": "highpoint-construction",
+    "last_seen": "2026-05-19T11:22:38+00:00",
+    "tier": "Watch"
+  },
+  "horvath-roofing-sem-best-companies-bellevue-oh": {
+    "client_slug": "horvath-roofing",
+    "last_seen": "2026-05-19T11:22:54+00:00",
+    "tier": "Watch"
+  },
+  "horvath-roofing-sem-best-companies-huron-oh": {
+    "client_slug": "horvath-roofing",
+    "last_seen": "2026-05-19T11:23:03+00:00",
+    "tier": "Watch"
+  },
+  "horvath-roofing-sem-best-companies-norwalk-oh": {
+    "client_slug": "horvath-roofing",
+    "last_seen": "2026-05-19T11:23:15+00:00",
+    "tier": "Watch"
+  },
+  "horvath-roofing-sem-best-companies-port-clinton-oh": {
+    "client_slug": "horvath-roofing",
+    "last_seen": "2026-05-19T11:23:26+00:00",
+    "tier": "Watch"
+  },
+  "horvath-roofing-sem-best-companies-sandusky-oh": {
+    "client_slug": "horvath-roofing",
+    "last_seen": "2026-05-19T11:23:36+00:00",
     "tier": "Watch"
   },
   "horvath-roofing-sem-branded-look-for-huron-oh": {
     "client_slug": "horvath-roofing",
-    "last_seen": "2026-05-19T10:24:24+00:00",
+    "last_seen": "2026-05-19T11:22:43+00:00",
     "tier": "Watch"
   },
   "horvath-roofing-sem-branded-services-huron-oh": {
     "client_slug": "horvath-roofing",
-    "last_seen": "2026-05-19T10:24:29+00:00",
+    "last_seen": "2026-05-19T11:22:47+00:00",
+    "tier": "Watch"
+  },
+  "horvath-roofing-sem-recommend-best-bellevue-oh": {
+    "client_slug": "horvath-roofing",
+    "last_seen": "2026-05-19T11:22:59+00:00",
+    "tier": "Watch"
+  },
+  "horvath-roofing-sem-recommend-best-huron-oh": {
+    "client_slug": "horvath-roofing",
+    "last_seen": "2026-05-19T11:23:10+00:00",
+    "tier": "Watch"
+  },
+  "horvath-roofing-sem-recommend-best-norwalk-oh": {
+    "client_slug": "horvath-roofing",
+    "last_seen": "2026-05-19T11:23:20+00:00",
+    "tier": "Watch"
+  },
+  "horvath-roofing-sem-recommend-best-port-clinton-oh": {
+    "client_slug": "horvath-roofing",
+    "last_seen": "2026-05-19T11:23:30+00:00",
+    "tier": "Watch"
+  },
+  "horvath-roofing-sem-recommend-best-sandusky-oh": {
+    "client_slug": "horvath-roofing",
+    "last_seen": "2026-05-19T11:23:41+00:00",
+    "tier": "Watch"
+  },
+  "link-exteriors-sem-best-companies-bloomington-mn": {
+    "client_slug": "link-exteriors",
+    "last_seen": "2026-05-19T11:23:58+00:00",
+    "tier": "Watch"
+  },
+  "link-exteriors-sem-best-companies-maple-grove-mn": {
+    "client_slug": "link-exteriors",
+    "last_seen": "2026-05-19T11:24:11+00:00",
+    "tier": "Watch"
+  },
+  "link-exteriors-sem-best-companies-minneapolis-mn": {
+    "client_slug": "link-exteriors",
+    "last_seen": "2026-05-19T11:24:23+00:00",
+    "tier": "Watch"
+  },
+  "link-exteriors-sem-best-companies-plymouth-mn": {
+    "client_slug": "link-exteriors",
+    "last_seen": "2026-05-19T11:24:33+00:00",
+    "tier": "Watch"
+  },
+  "link-exteriors-sem-best-companies-st-paul-mn": {
+    "client_slug": "link-exteriors",
+    "last_seen": "2026-05-19T11:24:45+00:00",
     "tier": "Watch"
   },
   "link-exteriors-sem-branded-look-for-minneapolis-mn": {
     "client_slug": "link-exteriors",
-    "last_seen": "2026-05-19T10:24:34+00:00",
+    "last_seen": "2026-05-19T11:23:46+00:00",
     "tier": "Watch"
   },
   "link-exteriors-sem-branded-services-minneapolis-mn": {
     "client_slug": "link-exteriors",
-    "last_seen": "2026-05-19T10:24:35+00:00",
+    "last_seen": "2026-05-19T11:23:52+00:00",
+    "tier": "Watch"
+  },
+  "link-exteriors-sem-recommend-best-bloomington-mn": {
+    "client_slug": "link-exteriors",
+    "last_seen": "2026-05-19T11:24:04+00:00",
+    "tier": "Watch"
+  },
+  "link-exteriors-sem-recommend-best-maple-grove-mn": {
+    "client_slug": "link-exteriors",
+    "last_seen": "2026-05-19T11:24:16+00:00",
+    "tier": "Watch"
+  },
+  "link-exteriors-sem-recommend-best-minneapolis-mn": {
+    "client_slug": "link-exteriors",
+    "last_seen": "2026-05-19T11:24:28+00:00",
+    "tier": "Watch"
+  },
+  "link-exteriors-sem-recommend-best-plymouth-mn": {
+    "client_slug": "link-exteriors",
+    "last_seen": "2026-05-19T11:24:39+00:00",
+    "tier": "Watch"
+  },
+  "link-exteriors-sem-recommend-best-st-paul-mn": {
+    "client_slug": "link-exteriors",
+    "last_seen": "2026-05-19T11:24:50+00:00",
+    "tier": "Watch"
+  },
+  "oneway-roofing-sem-best-companies-houston-tx": {
+    "client_slug": "oneway-roofing",
+    "last_seen": "2026-05-19T11:25:09+00:00",
+    "tier": "Watch"
+  },
+  "oneway-roofing-sem-best-companies-katy-tx": {
+    "client_slug": "oneway-roofing",
+    "last_seen": "2026-05-19T11:25:20+00:00",
+    "tier": "Watch"
+  },
+  "oneway-roofing-sem-best-companies-pearland-tx": {
+    "client_slug": "oneway-roofing",
+    "last_seen": "2026-05-19T11:25:33+00:00",
+    "tier": "Watch"
+  },
+  "oneway-roofing-sem-best-companies-spring-tx": {
+    "client_slug": "oneway-roofing",
+    "last_seen": "2026-05-19T11:25:44+00:00",
+    "tier": "Watch"
+  },
+  "oneway-roofing-sem-best-companies-sugar-land-tx": {
+    "client_slug": "oneway-roofing",
+    "last_seen": "2026-05-19T11:25:56+00:00",
     "tier": "Watch"
   },
   "oneway-roofing-sem-branded-look-for-houston-tx": {
     "client_slug": "oneway-roofing",
-    "last_seen": "2026-05-19T10:24:40+00:00",
+    "last_seen": "2026-05-19T11:24:58+00:00",
     "tier": "Watch"
   },
   "oneway-roofing-sem-branded-services-houston-tx": {
     "client_slug": "oneway-roofing",
-    "last_seen": "2026-05-19T10:24:45+00:00",
+    "last_seen": "2026-05-19T11:25:03+00:00",
+    "tier": "Watch"
+  },
+  "oneway-roofing-sem-recommend-best-houston-tx": {
+    "client_slug": "oneway-roofing",
+    "last_seen": "2026-05-19T11:25:15+00:00",
+    "tier": "Watch"
+  },
+  "oneway-roofing-sem-recommend-best-katy-tx": {
+    "client_slug": "oneway-roofing",
+    "last_seen": "2026-05-19T11:25:26+00:00",
+    "tier": "Watch"
+  },
+  "oneway-roofing-sem-recommend-best-pearland-tx": {
+    "client_slug": "oneway-roofing",
+    "last_seen": "2026-05-19T11:25:38+00:00",
+    "tier": "Watch"
+  },
+  "oneway-roofing-sem-recommend-best-spring-tx": {
+    "client_slug": "oneway-roofing",
+    "last_seen": "2026-05-19T11:25:50+00:00",
+    "tier": "Watch"
+  },
+  "oneway-roofing-sem-recommend-best-sugar-land-tx": {
+    "client_slug": "oneway-roofing",
+    "last_seen": "2026-05-19T11:26:01+00:00",
+    "tier": "Watch"
+  },
+  "shingle-hut-sem-best-companies-brandon-fl": {
+    "client_slug": "shingle-hut",
+    "last_seen": "2026-05-19T11:27:24+00:00",
+    "tier": "Watch"
+  },
+  "shingle-hut-sem-best-companies-lakeland-fl": {
+    "client_slug": "shingle-hut",
+    "last_seen": "2026-05-19T11:27:34+00:00",
+    "tier": "Watch"
+  },
+  "shingle-hut-sem-best-companies-riverview-fl": {
+    "client_slug": "shingle-hut",
+    "last_seen": "2026-05-19T11:27:46+00:00",
+    "tier": "Watch"
+  },
+  "shingle-hut-sem-best-companies-tampa-fl": {
+    "client_slug": "shingle-hut",
+    "last_seen": "2026-05-19T11:27:56+00:00",
+    "tier": "Watch"
+  },
+  "shingle-hut-sem-best-companies-wesley-chapel-fl": {
+    "client_slug": "shingle-hut",
+    "last_seen": "2026-05-19T11:28:07+00:00",
     "tier": "Watch"
   },
   "shingle-hut-sem-branded-look-for-tampa-fl": {
     "client_slug": "shingle-hut",
-    "last_seen": "2026-05-19T10:24:55+00:00",
+    "last_seen": "2026-05-19T11:27:12+00:00",
     "tier": "Watch"
   },
   "shingle-hut-sem-branded-services-tampa-fl": {
     "client_slug": "shingle-hut",
-    "last_seen": "2026-05-19T10:24:56+00:00",
+    "last_seen": "2026-05-19T11:27:18+00:00",
+    "tier": "Watch"
+  },
+  "shingle-hut-sem-recommend-best-brandon-fl": {
+    "client_slug": "shingle-hut",
+    "last_seen": "2026-05-19T11:27:29+00:00",
+    "tier": "Watch"
+  },
+  "shingle-hut-sem-recommend-best-lakeland-fl": {
+    "client_slug": "shingle-hut",
+    "last_seen": "2026-05-19T11:27:40+00:00",
+    "tier": "Watch"
+  },
+  "shingle-hut-sem-recommend-best-riverview-fl": {
+    "client_slug": "shingle-hut",
+    "last_seen": "2026-05-19T11:27:51+00:00",
+    "tier": "Watch"
+  },
+  "shingle-hut-sem-recommend-best-tampa-fl": {
+    "client_slug": "shingle-hut",
+    "last_seen": "2026-05-19T11:28:02+00:00",
+    "tier": "Watch"
+  },
+  "shingle-hut-sem-recommend-best-wesley-chapel-fl": {
+    "client_slug": "shingle-hut",
+    "last_seen": "2026-05-19T11:28:12+00:00",
+    "tier": "Watch"
+  },
+  "spennato-roofing-sem-best-companies-bensalem-pa": {
+    "client_slug": "spennato-roofing",
+    "last_seen": "2026-05-19T11:26:18+00:00",
+    "tier": "Watch"
+  },
+  "spennato-roofing-sem-best-companies-doylestown-pa": {
+    "client_slug": "spennato-roofing",
+    "last_seen": "2026-05-19T11:26:29+00:00",
+    "tier": "Watch"
+  },
+  "spennato-roofing-sem-best-companies-levittown-pa": {
+    "client_slug": "spennato-roofing",
+    "last_seen": "2026-05-19T11:26:40+00:00",
+    "tier": "Watch"
+  },
+  "spennato-roofing-sem-best-companies-newtown-pa": {
+    "client_slug": "spennato-roofing",
+    "last_seen": "2026-05-19T11:26:51+00:00",
+    "tier": "Watch"
+  },
+  "spennato-roofing-sem-best-companies-philadelphia-pa": {
+    "client_slug": "spennato-roofing",
+    "last_seen": "2026-05-19T11:27:02+00:00",
     "tier": "Watch"
   },
   "spennato-roofing-sem-branded-look-for-philadelphia-pa": {
     "client_slug": "spennato-roofing",
-    "last_seen": "2026-05-19T10:24:45+00:00",
+    "last_seen": "2026-05-19T11:26:08+00:00",
     "tier": "Watch"
   },
   "spennato-roofing-sem-branded-services-philadelphia-pa": {
     "client_slug": "spennato-roofing",
-    "last_seen": "2026-05-19T10:24:50+00:00",
+    "last_seen": "2026-05-19T11:26:12+00:00",
+    "tier": "Watch"
+  },
+  "spennato-roofing-sem-recommend-best-bensalem-pa": {
+    "client_slug": "spennato-roofing",
+    "last_seen": "2026-05-19T11:26:23+00:00",
+    "tier": "Watch"
+  },
+  "spennato-roofing-sem-recommend-best-doylestown-pa": {
+    "client_slug": "spennato-roofing",
+    "last_seen": "2026-05-19T11:26:34+00:00",
+    "tier": "Watch"
+  },
+  "spennato-roofing-sem-recommend-best-levittown-pa": {
+    "client_slug": "spennato-roofing",
+    "last_seen": "2026-05-19T11:26:46+00:00",
+    "tier": "Watch"
+  },
+  "spennato-roofing-sem-recommend-best-newtown-pa": {
+    "client_slug": "spennato-roofing",
+    "last_seen": "2026-05-19T11:26:56+00:00",
+    "tier": "Watch"
+  },
+  "spennato-roofing-sem-recommend-best-philadelphia-pa": {
+    "client_slug": "spennato-roofing",
+    "last_seen": "2026-05-19T11:27:07+00:00",
     "tier": "Watch"
   }
 }
