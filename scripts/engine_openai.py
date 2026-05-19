@@ -12,7 +12,7 @@ from common import build_ssl_context, normalize_domain
 
 
 API_URL = "https://api.openai.com/v1/responses"
-MODEL   = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
+MODEL   = os.environ.get("OPENAI_MODEL", "gpt-4o")
 ENGINE  = "chatgpt"
 
 
