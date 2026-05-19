@@ -11,7 +11,7 @@ from urllib import error, request
 from common import build_ssl_context, normalize_domain
 
 
-MODEL  = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+MODEL  = os.environ.get("GEMINI_MODEL", "gemini-2.0-flash")
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
 ENGINE = "gemini"
 
