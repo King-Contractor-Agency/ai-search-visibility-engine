@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#06080A" />
+<title>AI Search Visibility — King Contractor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#06080A;--surface:#0D1117;--card:#13181F;--border:#1E2530;--border-soft:#252D3A;
+  --text:#EDF0F4;--muted:#8B939E;--dim:#5A6270;
+  --blue:#3B82F6;--green:#10B981;--yellow:#F59E0B;--red:#EF4444;
+  --accent:#6366F1;--accent-h:#4F52DB;--accent-m:rgba(99,102,241,0.12);--gold:#F5A623;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;font-size:14px;line-height:1.5;min-height:100vh;display:flex}
+
+/* ── Sidebar ──────────────────────────────────────── */
+.sidebar{width:240px;min-width:240px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;height:100vh;position:sticky;top:0;overflow-y:auto}
+.sidebar-brand{padding:16px;border-bottom:1px solid var(--border)}
+.brand-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.brand-icon{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#6366F1,#4F46E5);box-shadow:0 2px 8px rgba(99,102,241,0.35);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.brand-icon svg{width:14px;height:14px;color:#fff}
+.brand-title{font-size:13px;font-weight:700;letter-spacing:-0.3px;line-height:1.2}
+.brand-title .ai{color:var(--accent)}
+.brand-sub{font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-top:2px}
+.live-dot{margin-left:auto;position:relative;width:6px;height:6px}
+.live-dot::before{content:'';position:absolute;inset:0;border-radius:50%;background:#4ade80;animation:ping 1.5s ease-in-out infinite}
+.live-dot::after{content:'';position:absolute;inset:0;border-radius:50%;background:#4ade80}
+@keyframes ping{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:0;transform:scale(2.2)}}
+.tool-chip{display:flex;align-items:center;gap:8px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);border-radius:8px;padding:6px 10px}
+.tool-chip svg{width:12px;height:12px;color:var(--accent)}
+.tool-chip-name{font-size:11px;font-weight:700;line-height:1}
+.tool-chip-name .dean{background:linear-gradient(135deg,#818CF8,#6366F1,#4F46E5);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.tool-chip-sub{font-size:9px;color:var(--dim);margin-top:2px}
+.nav-section-label{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);padding:0 12px;margin-bottom:6px;margin-top:16px}
+.sidebar-nav{flex:1;padding:12px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;transition:all 0.15s;text-decoration:none;margin-bottom:2px;border:none;background:transparent;width:100%;text-align:left;font-family:inherit}
+.nav-item:hover{background:var(--card);color:var(--text)}
+.nav-item.active{background:var(--accent-m);color:var(--text)}
+.nav-item-icon{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.15s}
+.nav-item.active .nav-item-icon{background:rgba(99,102,241,0.2)}
+.nav-item:hover .nav-item-icon{background:var(--border)}
+.nav-item-icon svg{width:14px;height:14px}
+.nav-item.active .nav-item-icon svg{color:var(--accent)}
+.nav-dot{margin-left:auto;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.sidebar-footer{padding:12px;border-top:1px solid var(--border)}
+.platform-badge{background:linear-gradient(135deg,rgba(99,102,241,0.08),rgba(99,102,241,0.04));border:1px solid rgba(99,102,241,0.2);border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:8px}
+.pb-icon{width:20px;height:20px;border-radius:4px;background:rgba(99,102,241,0.2);display:flex;align-items:center;justify-content:center}
+.pb-icon svg{width:12px;height:12px;color:#818CF8}
+.pb-name{font-size:11px;font-weight:600;color:#818CF8}
+.pb-sub{font-size:9px;color:var(--dim);margin-top:1px}
+.pb-live{margin-left:auto;font-size:9px;font-weight:700;background:rgba(16,185,129,0.12);color:#34D399;border-radius:4px;padding:2px 6px}
+
+/* ── Mobile drawer ────────────────────────────────── */
+.mobile-topbar{display:none;align-items:center;gap:10px;padding:12px 14px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
+.menu-btn{background:transparent;border:1px solid var(--border);color:var(--text);width:34px;height:34px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.menu-btn svg{width:16px;height:16px}
+.scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:25}
+.scrim.show{display:block}
+
+/* ── Main ─────────────────────────────────────────── */
+.main{flex:1;overflow-y:auto;min-width:0}
+.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10}
+.topbar-title{font-size:15px;font-weight:700;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.topbar-title span{color:var(--accent)}
+.topbar-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;border-radius:9999px;padding:3px 10px;white-space:nowrap}
+.badge-green{background:rgba(16,185,129,0.12);color:#34D399;border:1px solid rgba(16,185,129,0.2)}
+.badge-amber{background:rgba(245,158,11,0.12);color:#FCD34D;border:1px solid rgba(245,158,11,0.2)}
+.badge-red{background:rgba(239,68,68,0.12);color:#FCA5A5;border:1px solid rgba(239,68,68,0.2)}
+.badge-blue{background:rgba(59,130,246,0.12);color:#93C5FD;border:1px solid rgba(59,130,246,0.2)}
+.badge-indigo{background:rgba(99,102,241,0.12);color:#A5B4FC;border:1px solid rgba(99,102,241,0.2)}
+.badge-gray{background:rgba(90,98,112,0.2);color:var(--muted);border:1px solid var(--border)}
+.badge-live{background:rgba(16,185,129,0.15);color:#34D399;border:1px solid rgba(16,185,129,0.3);animation:pulseBadge 2s ease-in-out infinite}
+@keyframes pulseBadge{0%,100%{opacity:1}50%{opacity:0.6}}
+.btn{display:inline-flex;align-items:center;gap:6px;border-radius:8px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all 0.15s;font-family:inherit}
+.btn svg{width:14px;height:14px}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 1px 8px rgba(99,102,241,0.3)}
+.btn-primary:hover{background:var(--accent-h);transform:translateY(-1px)}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
+.btn-ghost:hover{border-color:var(--border-soft);color:var(--text);background:var(--card)}
+.content{padding:24px}
+
+/* ── Live banner ──────────────────────────────────── */
+.live-banner{background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(16,185,129,0.04));border:1px solid rgba(16,185,129,0.2);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:10px;margin-bottom:20px;font-size:12px;flex-wrap:wrap}
+.live-banner-dot{width:8px;height:8px;border-radius:50%;background:#34D399;flex-shrink:0;animation:pulseBadge 1.5s ease-in-out infinite}
+.live-banner-text{color:#34D399;font-weight:600}
+.live-banner-sub{color:var(--muted)}
+.live-banner-time{margin-left:auto;font-size:11px;color:var(--dim);font-family:'JetBrains Mono',monospace}
+
+/* ── Stats ────────────────────────────────────────── */
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color 0.15s,transform 0.15s}
+.stat-card:hover{border-color:var(--border-soft);transform:translateY(-1px)}
+.stat-top{height:3px;width:100%}
+.stat-top.launch{background:var(--red)}
+.stat-top.alert{background:var(--yellow)}
+.stat-top.watch{background:var(--green)}
+.stat-top.clear{background:var(--blue)}
+.stat-body{padding:14px 16px}
+.stat-label{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.stat-value{font-size:26px;font-weight:800;letter-spacing:-1px;line-height:1;font-family:'JetBrains Mono',monospace}
+.stat-sub{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* ── Section header ───────────────────────────────── */
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.section-title{font-size:13px;font-weight:700;letter-spacing:-0.2px}
+.section-line{flex:1;height:1px;background:var(--border);min-width:20px}
+.section-action{font-size:11px;color:var(--accent);cursor:pointer;font-weight:600;border:none;background:transparent;font-family:inherit}
+
+/* ── Cards ────────────────────────────────────────── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:16px}
+.card-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card-header svg{width:14px;height:14px;color:var(--accent);flex-shrink:0}
+.card-title{font-size:13px;font-weight:700}
+.card-body{padding:16px}
+
+/* ── Client grid ──────────────────────────────────── */
+.client-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px}
+.client-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;cursor:pointer;transition:all 0.15s}
+.client-card:hover{border-color:var(--border-soft);box-shadow:0 4px 24px rgba(0,0,0,0.4);transform:translateY(-1px)}
+.client-card-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.client-avatar{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;flex-shrink:0}
+.client-name{font-size:13px;font-weight:700;line-height:1.2}
+.client-domain{font-size:10px;color:var(--dim);margin-top:2px;font-family:'JetBrains Mono',monospace;word-break:break-all}
+.client-tier-stack{display:flex;gap:4px;margin-top:10px;flex-wrap:wrap}
+.tier-pill{font-size:10px;font-weight:700;border-radius:5px;padding:3px 7px;font-family:'JetBrains Mono',monospace}
+.tier-pill.launch{background:rgba(239,68,68,0.12);color:#FCA5A5;border:1px solid rgba(239,68,68,0.25)}
+.tier-pill.alert{background:rgba(245,158,11,0.12);color:#FCD34D;border:1px solid rgba(245,158,11,0.25)}
+.tier-pill.watch{background:rgba(16,185,129,0.12);color:#34D399;border:1px solid rgba(16,185,129,0.25)}
+.tier-pill.clear{background:rgba(59,130,246,0.12);color:#93C5FD;border:1px solid rgba(59,130,246,0.25)}
+.client-engine-row{display:flex;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);flex-wrap:wrap}
+.engine-dot{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--dim);padding:2px 6px;border-radius:4px;background:rgba(255,255,255,0.02);border:1px solid var(--border)}
+.engine-dot.cited{color:#34D399;border-color:rgba(16,185,129,0.3);background:rgba(16,185,129,0.06)}
+.engine-dot.missing{color:#FCA5A5;border-color:rgba(239,68,68,0.25);background:rgba(239,68,68,0.05)}
+
+/* ── Prompts list ─────────────────────────────────── */
+.prompt-row{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:6px;transition:background 0.1s}
+.prompt-row:last-child{border-bottom:none}
+.prompt-row:hover{background:rgba(255,255,255,0.02)}
+.prompt-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.prompt-text{font-size:12px;font-weight:600;flex:1;min-width:0}
+.prompt-meta{display:flex;gap:10px;font-size:10px;color:var(--dim);flex-wrap:wrap}
+.prompt-meta span{display:inline-flex;align-items:center;gap:3px}
+.prompt-rationale{font-size:11px;color:var(--muted);line-height:1.5}
+.prompt-competitors{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.prompt-competitors strong{color:#FCA5A5;font-weight:600}
+
+/* ── Engine breakdown ─────────────────────────────── */
+.engine-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.engine-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
+.engine-card-name{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:4px}
+.engine-card-value{font-size:18px;font-weight:800;font-family:'JetBrains Mono',monospace}
+.engine-card-pct{font-size:10px;color:var(--dim);margin-top:2px}
+
+/* ── Filters ──────────────────────────────────────── */
+.tab-strip{display:flex;gap:4px;margin-bottom:16px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:4px;flex-wrap:wrap;overflow-x:auto}
+.tab{flex:1;min-width:64px;padding:8px 8px;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer;text-align:center;transition:all 0.15s;color:var(--dim);border:none;background:transparent;font-family:inherit}
+.tab:hover{color:var(--muted);background:var(--card)}
+.tab.active{background:var(--accent);color:#fff;box-shadow:0 1px 8px rgba(99,102,241,0.3)}
+
+/* ── Briefs ───────────────────────────────────────── */
+.brief-row{display:flex;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);align-items:flex-start;flex-wrap:wrap}
+.brief-row:last-child{border-bottom:none}
+.brief-meta{flex:1;min-width:200px}
+.brief-title{font-size:12px;font-weight:600;margin-bottom:3px}
+.brief-sub{font-size:10px;color:var(--dim);font-family:'JetBrains Mono',monospace;word-break:break-all}
+.brief-actions{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ── Empty / loading ──────────────────────────────── */
+.empty-state{text-align:center;padding:48px 16px;color:var(--dim)}
+.empty-state svg{width:36px;height:36px;margin:0 auto 12px;display:block;opacity:0.4}
+.empty-state p{font-size:13px}
+.empty-state .hint{font-size:11px;margin-top:6px;color:var(--dim)}
+.spinner{width:16px;height:16px;border-radius:50%;border:2px solid var(--border);border-top-color:var(--accent);animation:spin 0.7s linear infinite;display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+.skeleton{background:linear-gradient(90deg,var(--card) 0%,var(--border-soft) 50%,var(--card) 100%);background-size:200% 100%;animation:shimmer 1.6s linear infinite;border-radius:6px;height:14px;width:60%}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* ── Responsive ───────────────────────────────────── */
+@media(max-width:1100px){
+  .client-grid{grid-template-columns:1fr}
+  .stat-strip{grid-template-columns:repeat(2,1fr)}
+  .engine-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  body{flex-direction:column}
+  .sidebar{position:fixed;top:0;left:0;height:100vh;z-index:30;transform:translateX(-100%);transition:transform 0.2s;width:78%;max-width:300px}
+  .sidebar.open{transform:translateX(0)}
+  .mobile-topbar{display:flex}
+  .topbar{display:none}
+  .content{padding:16px}
+  .live-banner{font-size:11px;padding:10px 12px}
+  .live-banner-time{display:none}
+  .stat-strip{gap:8px}
+  .stat-value{font-size:22px}
+  .card-body{padding:12px}
+  .prompt-row{padding:12px}
+  .engine-card-value{font-size:16px}
+}
+@media(max-width:480px){
+  .stat-strip{grid-template-columns:repeat(2,1fr)}
+  .engine-grid{grid-template-columns:repeat(2,1fr)}
+  .topbar-title{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE TOPBAR -->
+<div class="mobile-topbar">
+  <button class="menu-btn" onclick="toggleSidebar()" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div style="flex:1;font-size:13px;font-weight:700">AI Search <span style="color:var(--accent)">Visibility</span></div>
+  <button class="btn btn-primary" style="padding:6px 10px;font-size:11px" onclick="triggerScan()">▶ Scan</button>
+</div>
+<div class="scrim" id="scrim" onclick="toggleSidebar()"></div>
+
+<!-- Run-scan modal -->
+<div id="run-modal" style="display:none;position:fixed;inset:0;z-index:40;background:rgba(0,0,0,0.65);align-items:center;justify-content:center;padding:16px">
+  <div style="width:100%;max-width:480px;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden">
+    <div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A5B4FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <div style="font-size:14px;font-weight:700">Trigger AI Visibility Scan</div>
+      <button class="btn btn-ghost" style="margin-left:auto;padding:4px 10px" onclick="closeRunModal()">✕</button>
+    </div>
+    <div style="padding:18px 20px">
+      <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:14px">
+        Paste a <strong style="color:var(--text)">fine-grained GitHub PAT</strong> with <code>Actions: Read+Write</code> on this repo.
+        Stored only in your browser (localStorage). Revoke anytime at
+        <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener" style="color:var(--accent)">github.com/settings/tokens</a>.
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div>
+          <label style="display:block;font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--dim);margin-bottom:6px">Repo (owner/name)</label>
+          <input id="run-repo" type="text" placeholder="kingcontractor/ai-search-visibility-engine" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:10px 12px;font-size:13px;font-family:'JetBrains Mono',monospace;outline:none" />
+        </div>
+        <div>
+          <label style="display:block;font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--dim);margin-bottom:6px">GitHub PAT</label>
+          <input id="run-pat" type="password" placeholder="github_pat_..." style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:10px 12px;font-size:13px;font-family:'JetBrains Mono',monospace;outline:none" />
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <label style="font-size:11px;color:var(--muted);flex:1">
+            <input type="checkbox" id="run-remember" checked style="vertical-align:middle"/>
+            Remember in this browser
+          </label>
+          <label style="font-size:11px;color:var(--muted)">
+            Prompt limit
+            <input id="run-limit" type="number" min="0" max="60" value="12" style="width:60px;background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:4px 8px;font-family:'JetBrains Mono',monospace;font-size:12px;margin-left:4px"/>
+          </label>
+        </div>
+      </div>
+      <div id="run-msg" style="font-size:12px;margin-top:14px;display:none;padding:10px 12px;border-radius:8px"></div>
+      <div style="display:flex;gap:10px;margin-top:18px;justify-content:flex-end">
+        <a class="btn btn-ghost" id="run-deeplink" href="#" target="_blank" rel="noopener">Open in GitHub instead</a>
+        <button class="btn btn-primary" onclick="triggerNow()">▶ Run Scan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-row">
+      <div class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+      <div><div class="brand-title">KCA <span class="ai">AI OS</span></div><div class="brand-sub">Visibility Engine</div></div>
+      <div class="live-dot"></div>
+    </div>
+    <div class="tool-chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <div><div class="tool-chip-name"><span class="dean">AI</span> CITATIONS</div><div class="tool-chip-sub">Perplexity · ChatGPT · Gemini · AIO</div></div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Views</div>
+    <button class="nav-item active" data-view="overview" onclick="switchView('overview')">
+      <div class="nav-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+      Portfolio Overview <div class="nav-dot"></div>
+    </button>
+    <button class="nav-item" data-view="clients" onclick="switchView('clients')">
+      <div class="nav-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+      Per Client
+    </button>
+    <button class="nav-item" data-view="prompts" onclick="switchView('prompts')">
+      <div class="nav-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      Prompt Explorer
+    </button>
+    <button class="nav-item" data-view="briefs" onclick="switchView('briefs')">
+      <div class="nav-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
+      Action Plans
+    </button>
+    <button class="nav-item" data-view="history" onclick="switchView('history')">
+      <div class="nav-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      Trend History
+    </button>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="platform-badge">
+      <div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+      <div><div class="pb-name">King Contractor AI</div><div class="pb-sub" id="footer-sub">Daily scan</div></div>
+      <div class="pb-live">LIVE</div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="topbar">
+    <div class="topbar-title">AI Search <span>Visibility</span> Engine</div>
+    <div class="topbar-actions">
+      <span class="badge badge-live" id="status-badge">Loading...</span>
+      <button class="btn btn-ghost" onclick="loadData(true)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        Refresh
+      </button>
+      <button class="btn btn-primary" onclick="triggerScan()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Run Scan
+      </button>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- OVERVIEW -->
+    <section id="view-overview">
+      <div class="live-banner">
+        <div class="live-banner-dot"></div>
+        <span class="live-banner-text">DAILY SCAN</span>
+        <span class="live-banner-sub">4 AI engines · 8 clients · 2026 AEO playbook</span>
+        <span class="live-banner-time" id="sync-time">—</span>
+      </div>
+      <div class="stat-strip" id="stat-strip"></div>
+      <div class="section-header">
+        <div class="section-title">Portfolio Trend (30 days)</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <canvas id="trend-chart" height="120"></canvas>
+        </div>
+      </div>
+      <div class="section-header">
+        <div class="section-title">Today's Escalations</div>
+        <div class="section-line"></div>
+        <button class="section-action" onclick="switchView('prompts')">View all prompts →</button>
+      </div>
+      <div class="card">
+        <div id="escalation-list"></div>
+      </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section id="view-clients" style="display:none">
+      <div class="section-header">
+        <div class="section-title">Per-Client AI Visibility</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="client-grid" id="client-grid"></div>
+    </section>
+
+    <!-- PROMPTS -->
+    <section id="view-prompts" style="display:none">
+      <div class="tab-strip" id="client-tabs"></div>
+      <div class="tab-strip" id="tier-tabs">
+        <button class="tab active" data-tier="all" onclick="filterTier('all',event)">All</button>
+        <button class="tab" data-tier="Launch" onclick="filterTier('Launch',event)">Launch</button>
+        <button class="tab" data-tier="Alert" onclick="filterTier('Alert',event)">Alert</button>
+        <button class="tab" data-tier="Watch" onclick="filterTier('Watch',event)">Watch</button>
+        <button class="tab" data-tier="Clear" onclick="filterTier('Clear',event)">Clear</button>
+      </div>
+      <div class="card">
+        <div id="prompt-list"></div>
+      </div>
+    </section>
+
+    <!-- ACTION PLANS -->
+    <section id="view-briefs" style="display:none">
+      <div class="section-header">
+        <div class="section-title">Per-Client Action Plans — Today's Scan</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="card">
+        <div id="brief-list"></div>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="view-history" style="display:none">
+      <div class="section-header">
+        <div class="section-title">Tier Trend by Day</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <canvas id="history-chart" height="160"></canvas>
+        </div>
+      </div>
+      <div class="section-header">
+        <div class="section-title">Daily Log</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="card">
+        <div id="history-list"></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script>
+const REPO_BASE = ''; // dashboard reads sibling data.json
+const TIER_ORDER = {Launch:3, Alert:2, Watch:1, Clear:0};
+const TIER_CLASS = {Launch:'launch', Alert:'alert', Watch:'watch', Clear:'clear'};
+const TIER_BADGE = {Launch:'badge-red', Alert:'badge-amber', Watch:'badge-green', Clear:'badge-blue'};
+const ENGINE_LABEL = {perplexity:'Perplexity', chatgpt:'ChatGPT', gemini:'Gemini', google_aio:'Google AIO'};
+const AVATAR_PALETTE = ['#6366F1','#10B981','#F59E0B','#EF4444','#3B82F6','#A855F7','#EC4899','#14B8A6'];
+
+let DATA = null;
+let activeClient = 'all';
+let activeTier = 'all';
+let trendChart = null;
+let historyChart = null;
+
+function toggleSidebar(){
+  const sb = document.getElementById('sidebar');
+  const sc = document.getElementById('scrim');
+  sb.classList.toggle('open');
+  sc.classList.toggle('show');
+}
+
+function el(tag, cls, html){
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html !== undefined) e.innerHTML = html;
+  return e;
+}
+
+function fmtTime(iso){
+  if (!iso) return '—';
+  try { return new Date(iso).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}); }
+  catch(e){ return iso; }
+}
+
+function avatarFor(name){
+  const initials = (name||'?').split(/\s+/).slice(0,2).map(w=>w[0]||'').join('').toUpperCase();
+  let h = 0;
+  for (const ch of (name||'')) h = (h*31 + ch.charCodeAt(0)) | 0;
+  const color = AVATAR_PALETTE[Math.abs(h) % AVATAR_PALETTE.length];
+  return { initials, color };
+}
+
+async function loadData(force){
+  try {
+    const url = `data.json${force ? '?t=' + Date.now() : ''}`;
+    const res = await fetch(url, {cache: force ? 'no-store' : 'default'});
+    if (!res.ok) throw new Error('HTTP '+res.status);
+    DATA = await res.json();
+    render();
+    setStatus(`Synced ${new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'})}`, 'badge-live');
+  } catch(e){
+    console.error(e);
+    setStatus('No data yet — run the scan workflow once.', 'badge-amber');
+    renderEmpty();
+  }
+}
+
+function setStatus(text, cls){
+  const b = document.getElementById('status-badge');
+  if (b){ b.className = 'badge ' + cls; b.textContent = text; }
+  const m = document.getElementById('m-status');
+  if (m){ m.className = 'badge ' + cls; m.textContent = text; }
+}
+
+function renderEmpty(){
+  ['stat-strip','escalation-list','client-grid','prompt-list','brief-list','history-list'].forEach(id=>{
+    const e = document.getElementById(id);
+    if (!e) return;
+    e.innerHTML = `
+      <div class="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>No scan data yet</p>
+        <div class="hint">Trigger the <strong>AI Visibility Scan</strong> workflow on GitHub or run <code>python scripts/run_scan.py</code> locally.</div>
+      </div>`;
+  });
+}
+
+function render(){
+  if (!DATA){ return; }
+  document.getElementById('sync-time').textContent = `Last scan ${fmtTime(DATA.generated_at)}`;
+  document.getElementById('footer-sub').textContent = `Last scan ${(DATA.today||'').slice(5)}`;
+  renderStats();
+  renderTrend();
+  renderEscalations();
+  renderClients();
+  renderClientTabs();
+  renderPrompts();
+  renderBriefs();
+  renderHistory();
+}
+
+function renderStats(){
+  const c = DATA.tier_counts || {};
+  const strip = document.getElementById('stat-strip');
+  strip.innerHTML = '';
+  const cards = [
+    {label:'Launch', cls:'launch', value:c.Launch||0, sub:'Client absent · brief generated'},
+    {label:'Alert',  cls:'alert',  value:c.Alert||0,  sub:'Missing from ≥1 engine'},
+    {label:'Watch',  cls:'watch',  value:c.Watch||0,  sub:'Cited, position slipping'},
+    {label:'Clear',  cls:'clear',  value:c.Clear||0,  sub:'Top spots, all engines'},
+  ];
+  for (const card of cards){
+    const e = el('div','stat-card');
+    e.innerHTML = `
+      <div class="stat-top ${card.cls}"></div>
+      <div class="stat-body">
+        <div class="stat-label">${card.label}</div>
+        <div class="stat-value">${card.value}</div>
+        <div class="stat-sub">${card.sub}</div>
+      </div>`;
+    strip.appendChild(e);
+  }
+}
+
+function renderTrend(){
+  const data = DATA.portfolio_trend || [];
+  const ctx = document.getElementById('trend-chart');
+  if (!ctx) return;
+  if (trendChart) trendChart.destroy();
+  if (!data.length){
+    ctx.parentElement.innerHTML = '<div class="empty-state"><p>Trend builds after 2+ daily scans</p></div>';
+    return;
+  }
+  const labels = data.map(d => (d.date||'').slice(5));
+  trendChart = new Chart(ctx, {
+    type:'line',
+    data:{
+      labels,
+      datasets:[
+        {label:'Launch', data:data.map(d=>d.Launch||0), borderColor:'#EF4444', backgroundColor:'rgba(239,68,68,0.08)', tension:0.35, fill:true, pointRadius:2},
+        {label:'Alert',  data:data.map(d=>d.Alert||0),  borderColor:'#F59E0B', backgroundColor:'rgba(245,158,11,0.06)', tension:0.35, fill:true, pointRadius:2},
+        {label:'Watch',  data:data.map(d=>d.Watch||0),  borderColor:'#10B981', backgroundColor:'rgba(16,185,129,0.06)', tension:0.35, fill:true, pointRadius:2},
+        {label:'Clear',  data:data.map(d=>d.Clear||0),  borderColor:'#3B82F6', backgroundColor:'rgba(59,130,246,0.06)', tension:0.35, fill:true, pointRadius:2},
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{labels:{color:'#8B939E',font:{family:'Sora',size:11}}} },
+      scales:{
+        x:{ticks:{color:'#5A6270',font:{family:'JetBrains Mono',size:10}}, grid:{color:'rgba(255,255,255,0.04)'}},
+        y:{ticks:{color:'#5A6270',font:{family:'JetBrains Mono',size:10}}, grid:{color:'rgba(255,255,255,0.04)'}, beginAtZero:true}
+      }
+    }
+  });
+}
+
+function tierBadge(tier){
+  const cls = TIER_BADGE[tier] || 'badge-gray';
+  return `<span class="badge ${cls}">${tier||'?'}</span>`;
+}
+
+function renderEscalations(){
+  const list = document.getElementById('escalation-list');
+  list.innerHTML = '';
+  const esc = (DATA.escalations || []).slice(0,12);
+  if (!esc.length){
+    list.innerHTML = `<div class="empty-state" style="padding:32px"><p>Nothing to escalate — everyone's holding position.</p></div>`;
+    return;
+  }
+  for (const item of esc){
+    const competitors = Object.keys(item.competitor_hits||{}).slice(0,3).join(', ');
+    const row = el('div','prompt-row');
+    row.innerHTML = `
+      <div class="prompt-top">
+        ${tierBadge(item.tier)}
+        <div class="prompt-text">${escapeHtml(item.client_name)} · <span style="color:var(--muted);font-weight:500">${escapeHtml(item.prompt_text)}</span></div>
+      </div>
+      <div class="prompt-rationale">${escapeHtml(item.rationale||'')}</div>
+      ${competitors ? `<div class="prompt-competitors">Competitors cited: <strong>${escapeHtml(competitors)}</strong></div>` : ''}
+      ${item.brief_path ? `<div class="prompt-meta"><span>📄 Brief: <code>${escapeHtml(item.brief_path)}</code></span></div>` : ''}
+    `;
+    list.appendChild(row);
+  }
+}
+
+function renderClients(){
+  const grid = document.getElementById('client-grid');
+  grid.innerHTML = '';
+  const clients = DATA.clients || [];
+  if (!clients.length){ grid.innerHTML = `<div class="empty-state"><p>No clients in scan</p></div>`; return; }
+  for (const c of clients){
+    const avatar = avatarFor(c.client_name);
+    const tc = c.tier_counts || {};
+    const engineRow = ['perplexity','chatgpt','gemini','google_aio'].map(eng => {
+      const cited = c.engine_presence?.[eng] || 0;
+      const total = c.engine_total?.[eng] || 0;
+      const cls = total === 0 ? '' : (cited/total > 0.5 ? 'cited' : 'missing');
+      return `<span class="engine-dot ${cls}">${ENGINE_LABEL[eng]} ${cited}/${total}</span>`;
+    }).join('');
+    const card = el('div','client-card');
+    card.innerHTML = `
+      <div class="client-card-head">
+        <div class="client-avatar" style="background:${avatar.color}">${avatar.initials}</div>
+        <div style="flex:1;min-width:0">
+          <div class="client-name">${escapeHtml(c.client_name)}</div>
+          <div class="client-domain">${escapeHtml(c.website_domain||'')}</div>
+        </div>
+      </div>
+      <div class="client-tier-stack">
+        ${tc.Launch ? `<span class="tier-pill launch">${tc.Launch} Launch</span>` : ''}
+        ${tc.Alert  ? `<span class="tier-pill alert">${tc.Alert} Alert</span>` : ''}
+        ${tc.Watch  ? `<span class="tier-pill watch">${tc.Watch} Watch</span>` : ''}
+        ${tc.Clear  ? `<span class="tier-pill clear">${tc.Clear} Clear</span>` : ''}
+      </div>
+      <div class="client-engine-row">${engineRow}</div>
+    `;
+    card.onclick = () => { activeClient = c.client_slug; switchView('prompts'); };
+    grid.appendChild(card);
+  }
+}
+
+function renderClientTabs(){
+  const strip = document.getElementById('client-tabs');
+  strip.innerHTML = '';
+  const all = el('button','tab' + (activeClient==='all' ? ' active' : ''));
+  all.textContent = 'All';
+  all.onclick = (e) => { activeClient='all'; setActive(strip, e.currentTarget); renderPrompts(); };
+  strip.appendChild(all);
+  for (const c of DATA.clients || []){
+    const t = el('button','tab' + (activeClient===c.client_slug ? ' active' : ''));
+    t.textContent = (c.client_name||'').split(' ')[0];
+    t.title = c.client_name;
+    t.onclick = (e) => { activeClient=c.client_slug; setActive(strip, e.currentTarget); renderPrompts(); };
+    strip.appendChild(t);
+  }
+}
+
+function filterTier(tier, ev){
+  activeTier = tier;
+  setActive(document.getElementById('tier-tabs'), ev.currentTarget);
+  renderPrompts();
+}
+
+function setActive(parent, el){
+  for (const c of parent.children) c.classList.remove('active');
+  el.classList.add('active');
+}
+
+function renderPrompts(){
+  const list = document.getElementById('prompt-list');
+  list.innerHTML = '';
+  const clients = (DATA.clients || []).filter(c => activeClient === 'all' || c.client_slug === activeClient);
+  const rows = [];
+  for (const c of clients){
+    for (const p of c.prompts || []){
+      if (activeTier !== 'all' && p.tier !== activeTier) continue;
+      rows.push({ ...p, client_name: c.client_name });
+    }
+  }
+  rows.sort((a,b) => (TIER_ORDER[b.tier]||0) - (TIER_ORDER[a.tier]||0));
+  if (!rows.length){
+    list.innerHTML = `<div class="empty-state" style="padding:32px"><p>No prompts match the current filter.</p></div>`;
+    return;
+  }
+  for (const p of rows){
+    const cited   = (p.engines_cited||[]).map(e => `<span class="engine-dot cited">${ENGINE_LABEL[e]||e}</span>`).join('');
+    const missing = (p.engines_missing||[]).map(e => `<span class="engine-dot missing">${ENGINE_LABEL[e]||e}</span>`).join('');
+    const competitors = Object.keys(p.competitor_hits||{}).slice(0,3).join(', ');
+    const row = el('div','prompt-row');
+    row.innerHTML = `
+      <div class="prompt-top">
+        ${tierBadge(p.tier)}
+        <div class="prompt-text">${escapeHtml(p.text)}</div>
+      </div>
+      <div class="prompt-meta">
+        <span>👤 ${escapeHtml(p.client_name)}</span>
+        <span>📍 ${escapeHtml(p.market||'')}</span>
+        <span>🛠 ${escapeHtml(p.service||'')}</span>
+      </div>
+      <div class="prompt-rationale">${escapeHtml(p.rationale||'')}</div>
+      <div class="client-engine-row" style="border-top:none;padding-top:0;margin-top:0">${cited}${missing}</div>
+      ${competitors ? `<div class="prompt-competitors">Competitors cited: <strong>${escapeHtml(competitors)}</strong></div>` : ''}
+      ${p.brief_path ? `<div class="prompt-meta"><span>📄 <code>${escapeHtml(p.brief_path)}</code></span></div>` : ''}
+    `;
+    list.appendChild(row);
+  }
+}
+
+function renderBriefs(){
+  const list = document.getElementById('brief-list');
+  list.innerHTML = '';
+  const briefs = DATA.briefs || [];
+  if (!briefs.length){
+    list.innerHTML = `<div class="empty-state" style="padding:32px"><p>No action plans generated this scan.</p><div class="hint">Action plans auto-generate for every client with Launch- or Alert-tier prompts.</div></div>`;
+    return;
+  }
+  for (const b of briefs){
+    const row = el('div','brief-row');
+    const githubBlob = b.path ? `https://github.com/King-Contractor-Agency/ai-search-visibility-engine/blob/main/${b.path}` : '';
+    const publishedBtn = b.published_url
+      ? `<a class="btn btn-ghost" href="${escapeHtml(b.published_url)}" target="_blank" rel="noopener">📦 Client repo</a>`
+      : '';
+    row.innerHTML = `
+      <span class="badge badge-indigo">${escapeHtml(b.tier)}</span>
+      <div class="brief-meta">
+        <div class="brief-title">${escapeHtml(b.client_name)}</div>
+        <div class="brief-sub">${escapeHtml(b.prompt_text)} · <code>${escapeHtml(b.path)}</code></div>
+      </div>
+      <div class="brief-actions">
+        <a class="btn btn-primary" href="${githubBlob}" target="_blank" rel="noopener">📄 Open plan</a>
+        ${publishedBtn}
+      </div>
+    `;
+    list.appendChild(row);
+  }
+}
+
+function renderHistory(){
+  const list = document.getElementById('history-list');
+  list.innerHTML = '';
+  const trend = (DATA.portfolio_trend || []).slice().reverse(); // newest first
+  if (!trend.length){
+    list.innerHTML = `<div class="empty-state" style="padding:32px"><p>History fills in after the first scan.</p></div>`;
+  } else {
+    for (const d of trend){
+      const row = el('div','prompt-row');
+      row.innerHTML = `
+        <div class="prompt-top">
+          <span class="badge badge-indigo">${d.date}</span>
+          <div class="prompt-text">${d.scanned} prompts scanned</div>
+        </div>
+        <div class="client-engine-row" style="border-top:none;padding-top:0;margin-top:0">
+          ${d.Launch ? `<span class="tier-pill launch">${d.Launch} Launch</span>` : ''}
+          ${d.Alert  ? `<span class="tier-pill alert">${d.Alert} Alert</span>` : ''}
+          ${d.Watch  ? `<span class="tier-pill watch">${d.Watch} Watch</span>` : ''}
+          ${d.Clear  ? `<span class="tier-pill clear">${d.Clear} Clear</span>` : ''}
+        </div>`;
+      list.appendChild(row);
+    }
+  }
+
+  const ctx = document.getElementById('history-chart');
+  if (!ctx) return;
+  if (historyChart) historyChart.destroy();
+  const data = DATA.portfolio_trend || [];
+  if (!data.length) return;
+  historyChart = new Chart(ctx, {
+    type:'bar',
+    data:{
+      labels: data.map(d => (d.date||'').slice(5)),
+      datasets:[
+        {label:'Launch', data:data.map(d=>d.Launch||0), backgroundColor:'#EF4444', stack:'a'},
+        {label:'Alert',  data:data.map(d=>d.Alert||0),  backgroundColor:'#F59E0B', stack:'a'},
+        {label:'Watch',  data:data.map(d=>d.Watch||0),  backgroundColor:'#10B981', stack:'a'},
+        {label:'Clear',  data:data.map(d=>d.Clear||0),  backgroundColor:'#3B82F6', stack:'a'},
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{labels:{color:'#8B939E',font:{family:'Sora',size:11}}} },
+      scales:{
+        x:{stacked:true, ticks:{color:'#5A6270',font:{family:'JetBrains Mono',size:10}}, grid:{display:false}},
+        y:{stacked:true, ticks:{color:'#5A6270',font:{family:'JetBrains Mono',size:10}}, grid:{color:'rgba(255,255,255,0.04)'}, beginAtZero:true}
+      }
+    }
+  });
+}
+
+function switchView(view){
+  for (const sec of document.querySelectorAll('section[id^="view-"]')){
+    sec.style.display = (sec.id === 'view-'+view) ? 'block' : 'none';
+  }
+  for (const it of document.querySelectorAll('.nav-item')){
+    it.classList.toggle('active', it.dataset.view === view);
+  }
+  if (window.innerWidth <= 768){
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('scrim').classList.remove('show');
+  }
+  if (view === 'prompts'){ renderClientTabs(); renderPrompts(); }
+  if (view === 'history'){ renderHistory(); }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function escapeHtml(s){
+  return (s||'').toString()
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+}
+
+/* ── Run-scan modal ─────────────────────────────── */
+const LS_REPO = 'kca_run_repo';
+const LS_PAT  = 'kca_run_pat';
+
+function inferRepoFromPages(){
+  // GitHub Pages URLs look like https://owner.github.io/repo/
+  try {
+    const host = location.hostname;
+    const path = location.pathname.replace(/^\/|\/$/g,'').split('/');
+    if (host.endsWith('.github.io') && path[0]){
+      return host.replace('.github.io','') + '/' + path[0];
+    }
+  } catch(e){}
+  return '';
+}
+
+function triggerScan(){
+  document.getElementById('run-modal').style.display='flex';
+  document.getElementById('run-repo').value = localStorage.getItem(LS_REPO) || inferRepoFromPages();
+  document.getElementById('run-pat').value  = localStorage.getItem(LS_PAT)  || '';
+  document.getElementById('run-msg').style.display='none';
+  updateDeeplink();
+  document.getElementById('run-repo').oninput = updateDeeplink;
+}
+
+function closeRunModal(){
+  document.getElementById('run-modal').style.display='none';
+}
+
+function updateDeeplink(){
+  const repo = document.getElementById('run-repo').value.trim();
+  const link = document.getElementById('run-deeplink');
+  if (repo && repo.includes('/')){
+    link.href = `https://github.com/${repo}/actions/workflows/ai-visibility-scan.yml`;
+  } else {
+    link.href = 'https://github.com';
+  }
+}
+
+function showRunMsg(text, kind){
+  const colors = {
+    ok:    'rgba(16,185,129,0.1)|#34D399|rgba(16,185,129,0.25)',
+    err:   'rgba(239,68,68,0.1)|#FCA5A5|rgba(239,68,68,0.25)',
+    info:  'rgba(99,102,241,0.1)|#A5B4FC|rgba(99,102,241,0.25)',
+  };
+  const [bg,fg,br] = (colors[kind]||colors.info).split('|');
+  const el = document.getElementById('run-msg');
+  el.style.background = bg; el.style.color = fg; el.style.border = `1px solid ${br}`;
+  el.textContent = text; el.style.display='block';
+}
+
+async function triggerNow(){
+  const repo  = document.getElementById('run-repo').value.trim();
+  const pat   = document.getElementById('run-pat').value.trim();
+  const limit = document.getElementById('run-limit').value || '12';
+  const remember = document.getElementById('run-remember').checked;
+  if (!repo || !repo.includes('/')){ showRunMsg('Repo must look like owner/name', 'err'); return; }
+  if (!pat){ showRunMsg('Paste a fine-grained GitHub PAT', 'err'); return; }
+
+  if (remember){
+    localStorage.setItem(LS_REPO, repo);
+    localStorage.setItem(LS_PAT,  pat);
+  } else {
+    localStorage.removeItem(LS_PAT);
+  }
+
+  showRunMsg('Dispatching workflow...', 'info');
+  try {
+    const r = await fetch(`https://api.github.com/repos/${repo}/actions/workflows/ai-visibility-scan.yml/dispatches`, {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + pat,
+        'Accept':        'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+      body: JSON.stringify({
+        ref:    'main',
+        inputs: { prompt_limit: String(limit), dry_run: 'false', no_publish: 'false' },
+      }),
+    });
+    if (r.status === 204){
+      showRunMsg('Workflow dispatched. Refresh the dashboard in ~3–5 min. Track progress on GitHub Actions →', 'ok');
+    } else {
+      const body = await r.text();
+      showRunMsg(`Failed (${r.status}): ${body.slice(0,200)}`, 'err');
+    }
+  } catch(e){
+    showRunMsg('Network error: ' + e.message, 'err');
+  }
+}
+
+loadData(false);
+setInterval(() => loadData(true), 5 * 60 * 1000); // auto-refresh every 5 min
+</script>
+</body>
+</html>
