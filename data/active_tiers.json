@@ -1,1 +1,82 @@
-{}
+{
+  "all-heights-roofing-sem-branded-look-for-willoughby-oh": {
+    "client_slug": "all-heights-roofing",
+    "last_seen": "2026-05-19T10:24:01+00:00",
+    "tier": "Watch"
+  },
+  "all-heights-roofing-sem-branded-services-willoughby-oh": {
+    "client_slug": "all-heights-roofing",
+    "last_seen": "2026-05-19T10:24:07+00:00",
+    "tier": "Watch"
+  },
+  "colorado-preferred-roofing-sem-branded-look-for-littleton-co": {
+    "client_slug": "colorado-preferred-roofing",
+    "last_seen": "2026-05-19T10:24:12+00:00",
+    "tier": "Watch"
+  },
+  "colorado-preferred-roofing-sem-branded-services-littleton-co": {
+    "client_slug": "colorado-preferred-roofing",
+    "last_seen": "2026-05-19T10:24:13+00:00",
+    "tier": "Watch"
+  },
+  "highpoint-construction-sem-branded-look-for-bismarck-nd": {
+    "client_slug": "highpoint-construction",
+    "last_seen": "2026-05-19T10:24:18+00:00",
+    "tier": "Watch"
+  },
+  "highpoint-construction-sem-branded-services-bismarck-nd": {
+    "client_slug": "highpoint-construction",
+    "last_seen": "2026-05-19T10:24:24+00:00",
+    "tier": "Watch"
+  },
+  "horvath-roofing-sem-branded-look-for-huron-oh": {
+    "client_slug": "horvath-roofing",
+    "last_seen": "2026-05-19T10:24:24+00:00",
+    "tier": "Watch"
+  },
+  "horvath-roofing-sem-branded-services-huron-oh": {
+    "client_slug": "horvath-roofing",
+    "last_seen": "2026-05-19T10:24:29+00:00",
+    "tier": "Watch"
+  },
+  "link-exteriors-sem-branded-look-for-minneapolis-mn": {
+    "client_slug": "link-exteriors",
+    "last_seen": "2026-05-19T10:24:34+00:00",
+    "tier": "Watch"
+  },
+  "link-exteriors-sem-branded-services-minneapolis-mn": {
+    "client_slug": "link-exteriors",
+    "last_seen": "2026-05-19T10:24:35+00:00",
+    "tier": "Watch"
+  },
+  "oneway-roofing-sem-branded-look-for-houston-tx": {
+    "client_slug": "oneway-roofing",
+    "last_seen": "2026-05-19T10:24:40+00:00",
+    "tier": "Watch"
+  },
+  "oneway-roofing-sem-branded-services-houston-tx": {
+    "client_slug": "oneway-roofing",
+    "last_seen": "2026-05-19T10:24:45+00:00",
+    "tier": "Watch"
+  },
+  "shingle-hut-sem-branded-look-for-tampa-fl": {
+    "client_slug": "shingle-hut",
+    "last_seen": "2026-05-19T10:24:55+00:00",
+    "tier": "Watch"
+  },
+  "shingle-hut-sem-branded-services-tampa-fl": {
+    "client_slug": "shingle-hut",
+    "last_seen": "2026-05-19T10:24:56+00:00",
+    "tier": "Watch"
+  },
+  "spennato-roofing-sem-branded-look-for-philadelphia-pa": {
+    "client_slug": "spennato-roofing",
+    "last_seen": "2026-05-19T10:24:45+00:00",
+    "tier": "Watch"
+  },
+  "spennato-roofing-sem-branded-services-philadelphia-pa": {
+    "client_slug": "spennato-roofing",
+    "last_seen": "2026-05-19T10:24:50+00:00",
+    "tier": "Watch"
+  }
+}

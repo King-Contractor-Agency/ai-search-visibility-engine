@@ -1,12 +1,720 @@
 {
-  "generated_at": "",
-  "today": "",
-  "tier_counts": {"Clear": 0, "Watch": 0, "Alert": 0, "Launch": 0},
-  "prompts_scanned": 0,
-  "engines_used": [],
+  "generated_at": "2026-05-19T10:30:57+00:00",
+  "today": "2026-05-19",
+  "tier_counts": {
+    "Clear": 0,
+    "Watch": 16,
+    "Alert": 0,
+    "Launch": 0
+  },
+  "prompts_scanned": 16,
+  "engines_used": [
+    "chatgpt",
+    "gemini"
+  ],
   "briefs_generated": 0,
-  "portfolio_trend": [],
-  "clients": [],
-  "briefs": [],
-  "escalations": []
+  "portfolio_trend": [
+    {
+      "date": "2026-05-19",
+      "Clear": 0,
+      "Watch": 16,
+      "Alert": 0,
+      "Launch": 0,
+      "scanned": 16
+    }
+  ],
+  "clients": [
+    {
+      "client_slug": "all-heights-roofing",
+      "client_name": "All Heights Roofing",
+      "website_domain": "allheightsroofing.com",
+      "tier_counts": {
+        "Clear": 0,
+        "Watch": 2,
+        "Alert": 0,
+        "Launch": 0
+      },
+      "prompts": [
+        {
+          "prompt_id": "all-heights-roofing-sem-branded-look-for-willoughby-oh",
+          "text": "What should I look for when hiring a roofing contractor like All Heights Roofing & Construction?",
+          "market": "Willoughby OH",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        },
+        {
+          "prompt_id": "all-heights-roofing-sem-branded-services-willoughby-oh",
+          "text": "All Heights Roofing & Construction services",
+          "market": "Willoughby OH",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        }
+      ],
+      "competitor_share": {},
+      "engine_presence": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      },
+      "engine_total": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      }
+    },
+    {
+      "client_slug": "colorado-preferred-roofing",
+      "client_name": "Colorado Preferred Roofing",
+      "website_domain": "coloradopreferredroofing.com",
+      "tier_counts": {
+        "Clear": 0,
+        "Watch": 2,
+        "Alert": 0,
+        "Launch": 0
+      },
+      "prompts": [
+        {
+          "prompt_id": "colorado-preferred-roofing-sem-branded-look-for-littleton-co",
+          "text": "What should I look for when hiring a roofing contractor like Colorado Preferred Roofing?",
+          "market": "Littleton CO",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        },
+        {
+          "prompt_id": "colorado-preferred-roofing-sem-branded-services-littleton-co",
+          "text": "Colorado Preferred Roofing services",
+          "market": "Littleton CO",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        }
+      ],
+      "competitor_share": {},
+      "engine_presence": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      },
+      "engine_total": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      }
+    },
+    {
+      "client_slug": "highpoint-construction",
+      "client_name": "Highpoint Construction",
+      "website_domain": "highpointconstructionnd.com",
+      "tier_counts": {
+        "Clear": 0,
+        "Watch": 2,
+        "Alert": 0,
+        "Launch": 0
+      },
+      "prompts": [
+        {
+          "prompt_id": "highpoint-construction-sem-branded-look-for-bismarck-nd",
+          "text": "What should I look for when hiring a roofing contractor like Highpoint Construction?",
+          "market": "Bismarck ND",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        },
+        {
+          "prompt_id": "highpoint-construction-sem-branded-services-bismarck-nd",
+          "text": "Highpoint Construction services",
+          "market": "Bismarck ND",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        }
+      ],
+      "competitor_share": {},
+      "engine_presence": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      },
+      "engine_total": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      }
+    },
+    {
+      "client_slug": "horvath-roofing",
+      "client_name": "Horvath Roofing",
+      "website_domain": "horvathroofinginc.com",
+      "tier_counts": {
+        "Clear": 0,
+        "Watch": 2,
+        "Alert": 0,
+        "Launch": 0
+      },
+      "prompts": [
+        {
+          "prompt_id": "horvath-roofing-sem-branded-look-for-huron-oh",
+          "text": "What should I look for when hiring a roofing contractor like Horvath Roofing Inc?",
+          "market": "Huron OH",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        },
+        {
+          "prompt_id": "horvath-roofing-sem-branded-services-huron-oh",
+          "text": "Horvath Roofing Inc services",
+          "market": "Huron OH",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        }
+      ],
+      "competitor_share": {},
+      "engine_presence": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      },
+      "engine_total": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      }
+    },
+    {
+      "client_slug": "link-exteriors",
+      "client_name": "Link Exteriors",
+      "website_domain": "linkexteriors.com",
+      "tier_counts": {
+        "Clear": 0,
+        "Watch": 2,
+        "Alert": 0,
+        "Launch": 0
+      },
+      "prompts": [
+        {
+          "prompt_id": "link-exteriors-sem-branded-look-for-minneapolis-mn",
+          "text": "What should I look for when hiring a roofing contractor like Link Exteriors?",
+          "market": "Minneapolis MN",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        },
+        {
+          "prompt_id": "link-exteriors-sem-branded-services-minneapolis-mn",
+          "text": "Link Exteriors services",
+          "market": "Minneapolis MN",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        }
+      ],
+      "competitor_share": {},
+      "engine_presence": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      },
+      "engine_total": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      }
+    },
+    {
+      "client_slug": "oneway-roofing",
+      "client_name": "Oneway Roofing",
+      "website_domain": "onewayroof.com",
+      "tier_counts": {
+        "Clear": 0,
+        "Watch": 2,
+        "Alert": 0,
+        "Launch": 0
+      },
+      "prompts": [
+        {
+          "prompt_id": "oneway-roofing-sem-branded-look-for-houston-tx",
+          "text": "What should I look for when hiring a roofing contractor like Oneway Construction and Roofing?",
+          "market": "Houston TX",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        },
+        {
+          "prompt_id": "oneway-roofing-sem-branded-services-houston-tx",
+          "text": "Oneway Construction and Roofing services",
+          "market": "Houston TX",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        }
+      ],
+      "competitor_share": {},
+      "engine_presence": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      },
+      "engine_total": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      }
+    },
+    {
+      "client_slug": "shingle-hut",
+      "client_name": "Shingle HUT",
+      "website_domain": "shinglehut.com",
+      "tier_counts": {
+        "Clear": 0,
+        "Watch": 2,
+        "Alert": 0,
+        "Launch": 0
+      },
+      "prompts": [
+        {
+          "prompt_id": "shingle-hut-sem-branded-look-for-tampa-fl",
+          "text": "What should I look for when hiring a roofing contractor like Shingle HUT?",
+          "market": "Tampa FL",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        },
+        {
+          "prompt_id": "shingle-hut-sem-branded-services-tampa-fl",
+          "text": "Shingle HUT services",
+          "market": "Tampa FL",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        }
+      ],
+      "competitor_share": {},
+      "engine_presence": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      },
+      "engine_total": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      }
+    },
+    {
+      "client_slug": "spennato-roofing",
+      "client_name": "Spennato Roofing",
+      "website_domain": "spennatoroofing.com",
+      "tier_counts": {
+        "Clear": 0,
+        "Watch": 2,
+        "Alert": 0,
+        "Launch": 0
+      },
+      "prompts": [
+        {
+          "prompt_id": "spennato-roofing-sem-branded-look-for-philadelphia-pa",
+          "text": "What should I look for when hiring a roofing contractor like Spennato Family Roofing?",
+          "market": "Philadelphia PA",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        },
+        {
+          "prompt_id": "spennato-roofing-sem-branded-services-philadelphia-pa",
+          "text": "Spennato Family Roofing services",
+          "market": "Philadelphia PA",
+          "service": "roof replacement",
+          "tier": "Watch",
+          "rationale": "All engines failed \u2014 cannot evaluate.",
+          "engines_cited": [],
+          "engines_missing": [],
+          "competitor_hits": {},
+          "brief_path": ""
+        }
+      ],
+      "competitor_share": {},
+      "engine_presence": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      },
+      "engine_total": {
+        "perplexity": 0,
+        "chatgpt": 0,
+        "gemini": 0,
+        "google_aio": 0
+      }
+    }
+  ],
+  "briefs": [
+    {
+      "client_slug": "all-heights-roofing",
+      "client_name": "All Heights Roofing",
+      "prompt_text": "2 fixes \u2014 full action plan",
+      "tier": "Action Plan",
+      "market": "",
+      "path": "output/reports/all-heights-roofing/2026-05-19__action-plan.md",
+      "published_url": "",
+      "generated_at": "2026-05-19T10:24:00+00:00"
+    },
+    {
+      "client_slug": "colorado-preferred-roofing",
+      "client_name": "Colorado Preferred Roofing",
+      "prompt_text": "2 fixes \u2014 full action plan",
+      "tier": "Action Plan",
+      "market": "",
+      "path": "output/reports/colorado-preferred-roofing/2026-05-19__action-plan.md",
+      "published_url": "",
+      "generated_at": "2026-05-19T10:24:00+00:00"
+    },
+    {
+      "client_slug": "horvath-roofing",
+      "client_name": "Horvath Roofing",
+      "prompt_text": "2 fixes \u2014 full action plan",
+      "tier": "Action Plan",
+      "market": "",
+      "path": "output/reports/horvath-roofing/2026-05-19__action-plan.md",
+      "published_url": "",
+      "generated_at": "2026-05-19T10:24:00+00:00"
+    },
+    {
+      "client_slug": "highpoint-construction",
+      "client_name": "Highpoint Construction",
+      "prompt_text": "2 fixes \u2014 full action plan",
+      "tier": "Action Plan",
+      "market": "",
+      "path": "output/reports/highpoint-construction/2026-05-19__action-plan.md",
+      "published_url": "",
+      "generated_at": "2026-05-19T10:24:00+00:00"
+    },
+    {
+      "client_slug": "link-exteriors",
+      "client_name": "Link Exteriors",
+      "prompt_text": "2 fixes \u2014 full action plan",
+      "tier": "Action Plan",
+      "market": "",
+      "path": "output/reports/link-exteriors/2026-05-19__action-plan.md",
+      "published_url": "",
+      "generated_at": "2026-05-19T10:24:00+00:00"
+    },
+    {
+      "client_slug": "oneway-roofing",
+      "client_name": "Oneway Roofing",
+      "prompt_text": "2 fixes \u2014 full action plan",
+      "tier": "Action Plan",
+      "market": "",
+      "path": "output/reports/oneway-roofing/2026-05-19__action-plan.md",
+      "published_url": "",
+      "generated_at": "2026-05-19T10:24:00+00:00"
+    },
+    {
+      "client_slug": "spennato-roofing",
+      "client_name": "Spennato Roofing",
+      "prompt_text": "2 fixes \u2014 full action plan",
+      "tier": "Action Plan",
+      "market": "",
+      "path": "output/reports/spennato-roofing/2026-05-19__action-plan.md",
+      "published_url": "",
+      "generated_at": "2026-05-19T10:24:00+00:00"
+    },
+    {
+      "client_slug": "shingle-hut",
+      "client_name": "Shingle HUT",
+      "prompt_text": "2 fixes \u2014 full action plan",
+      "tier": "Action Plan",
+      "market": "",
+      "path": "output/reports/shingle-hut/2026-05-19__action-plan.md",
+      "published_url": "",
+      "generated_at": "2026-05-19T10:24:00+00:00"
+    }
+  ],
+  "escalations": [
+    {
+      "client_name": "All Heights Roofing",
+      "client_slug": "all-heights-roofing",
+      "prompt_id": "all-heights-roofing-sem-branded-look-for-willoughby-oh",
+      "prompt_text": "What should I look for when hiring a roofing contractor like All Heights Roofing & Construction?",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "All Heights Roofing",
+      "client_slug": "all-heights-roofing",
+      "prompt_id": "all-heights-roofing-sem-branded-services-willoughby-oh",
+      "prompt_text": "All Heights Roofing & Construction services",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Colorado Preferred Roofing",
+      "client_slug": "colorado-preferred-roofing",
+      "prompt_id": "colorado-preferred-roofing-sem-branded-look-for-littleton-co",
+      "prompt_text": "What should I look for when hiring a roofing contractor like Colorado Preferred Roofing?",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Colorado Preferred Roofing",
+      "client_slug": "colorado-preferred-roofing",
+      "prompt_id": "colorado-preferred-roofing-sem-branded-services-littleton-co",
+      "prompt_text": "Colorado Preferred Roofing services",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Highpoint Construction",
+      "client_slug": "highpoint-construction",
+      "prompt_id": "highpoint-construction-sem-branded-look-for-bismarck-nd",
+      "prompt_text": "What should I look for when hiring a roofing contractor like Highpoint Construction?",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Highpoint Construction",
+      "client_slug": "highpoint-construction",
+      "prompt_id": "highpoint-construction-sem-branded-services-bismarck-nd",
+      "prompt_text": "Highpoint Construction services",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Horvath Roofing",
+      "client_slug": "horvath-roofing",
+      "prompt_id": "horvath-roofing-sem-branded-look-for-huron-oh",
+      "prompt_text": "What should I look for when hiring a roofing contractor like Horvath Roofing Inc?",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Horvath Roofing",
+      "client_slug": "horvath-roofing",
+      "prompt_id": "horvath-roofing-sem-branded-services-huron-oh",
+      "prompt_text": "Horvath Roofing Inc services",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Link Exteriors",
+      "client_slug": "link-exteriors",
+      "prompt_id": "link-exteriors-sem-branded-look-for-minneapolis-mn",
+      "prompt_text": "What should I look for when hiring a roofing contractor like Link Exteriors?",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Link Exteriors",
+      "client_slug": "link-exteriors",
+      "prompt_id": "link-exteriors-sem-branded-services-minneapolis-mn",
+      "prompt_text": "Link Exteriors services",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Oneway Roofing",
+      "client_slug": "oneway-roofing",
+      "prompt_id": "oneway-roofing-sem-branded-look-for-houston-tx",
+      "prompt_text": "What should I look for when hiring a roofing contractor like Oneway Construction and Roofing?",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Oneway Roofing",
+      "client_slug": "oneway-roofing",
+      "prompt_id": "oneway-roofing-sem-branded-services-houston-tx",
+      "prompt_text": "Oneway Construction and Roofing services",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Spennato Roofing",
+      "client_slug": "spennato-roofing",
+      "prompt_id": "spennato-roofing-sem-branded-look-for-philadelphia-pa",
+      "prompt_text": "What should I look for when hiring a roofing contractor like Spennato Family Roofing?",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Spennato Roofing",
+      "client_slug": "spennato-roofing",
+      "prompt_id": "spennato-roofing-sem-branded-services-philadelphia-pa",
+      "prompt_text": "Spennato Family Roofing services",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Shingle HUT",
+      "client_slug": "shingle-hut",
+      "prompt_id": "shingle-hut-sem-branded-look-for-tampa-fl",
+      "prompt_text": "What should I look for when hiring a roofing contractor like Shingle HUT?",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    },
+    {
+      "client_name": "Shingle HUT",
+      "client_slug": "shingle-hut",
+      "prompt_id": "shingle-hut-sem-branded-services-tampa-fl",
+      "prompt_text": "Shingle HUT services",
+      "tier": "Watch",
+      "previous_tier": "Clear",
+      "rationale": "All engines failed \u2014 cannot evaluate.",
+      "engines_cited": [],
+      "engines_missing": [],
+      "competitor_hits": {},
+      "brief_path": ""
+    }
+  ]
 }
