@@ -91,14 +91,14 @@ def _run_engines_for_prompt(prompt_text: str, engines: list) -> list[dict[str, A
     """Engines in parallel for a single prompt."""
     out: list[dict[str, Any]] = []
     with ThreadPoolExecutor(max_workers=ENGINE_WORKERS) as pool:
-  futures = {pool.submit(_query_one_engine, mod, prompt_text): mod for mod in engines}
-    for f in as_completed(futures):
+        futures = {pool.submit(_query_one_engine, mod, prompt_text): mod for mod in engines}
+        for f in as_completed(futures):
             r = f.result()
             if r is not None:
                 if not r.get("ok"):
                     print(f"    [engine] {r.get('engine')} FAILED: {(r.get('error') or '')[:300]}", file=sys.stderr)
                 out.append(r)
-        return out
+    return out
 
 
 # ── Phase 3/4: DIAGNOSE + IMPLEMENT ──────────────────────────────────────
