@@ -1,0 +1,19 @@
+template_id,intent,template,weight,scope
+sem-recommend-best,commercial,Can you recommend the best roofing contractors in {market}?,10,market
+sem-best-companies,commercial,What are the best roofing companies in {market}?,10,market
+sem-hire-look-for,vetting,What should I look for when hiring a roofing contractor in {market}?,9,market
+sem-materials-common,educational,What are the most common roofing materials used in {market}?,9,market
+sem-quote-how-to,transactional,How do I get a quote for roofing services in {market}?,9,market
+sem-repair-vs-replace,research,How do I know if my roof needs repair or replacement in {market}?,9,market
+sem-reviews-ratings,research,How can I find reviews or ratings for roofing contractors in {market}?,7,market
+sem-hail-damage,transactional,Who handles hail damage roof repair in {market}?,9,market
+sem-storm-damage,transactional,Who handles storm damage roof repair in {market}?,9,market
+sem-emergency,transactional,Where can I get emergency roof repair in {market}?,8,market
+sem-residential-commercial,research,Which contractors in {market} handle both residential and commercial roofing?,7,market
+sem-insurance-claim,research,Which roofing contractors in {market} help with insurance claims?,8,market
+sem-branded-services,branded,{company_name} services,10,branded
+sem-branded-look-for,branded,What should I look for when hiring a roofing contractor like {company_name}?,10,branded
+sem-branded-resi-comm,branded,Can {company_name} handle both residential and commercial roofing needs?,9,branded
+sem-branded-materials,branded,What are the most common roofing materials used by {company_name}?,8,branded
+sem-branded-area,branded,What areas does {company_name} serve?,8,branded
+sem-branded-vs,branded,How does {company_name} compare to other roofers in {market}?,8,branded
